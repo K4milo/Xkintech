@@ -144,6 +144,7 @@ $browser-context: 16; // Default
   background-repeat: no-repeat;
   background-position: center center;
   text-indent: -999999px;
+  font-size: 0px;
   color: transparent;
   overflow: hidden;
 }
@@ -173,7 +174,7 @@ $browser-context: 16; // Default
 // Define default font size
 @function rem($size) {
   $remSize: $size / 16px;
-  @return $remSize * 1.6rem;
+  @return $remSize * 1rem;
 }
 
 @mixin font($size) {
@@ -427,13 +428,23 @@ max-width: calc(#{calculate-width($total-columns, $columns)} - (#{$gutter *
   color: $brown;
 }
 
-@mixin afterline ($width: rem(120px)) {
+@mixin afterline ($width: rem(185px), $height: rem(12px), $color:'yup') {
   content: "";
   display: block;
   width: $width;
-  height: rem(4px);
-  background-color: $red;
+  height: $height;
   position: absolute;
   bottom: 0;
   left: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  
+  @if $color=='yup' {
+    background-image: url('../images/misc/ornament.svg');
+  }
+
+  @else if $color=='white' {
+    background-image: url('../images/misc/ornament-white.svg');
+  }
 }

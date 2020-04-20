@@ -2,18 +2,8 @@ body {
   font-size: 16px;
   font-family: $rg;
 
-  p,
-  ul,
-  ol {
-    @include font(14px);
-  }
-
   p {
     line-height: 1.5;
-
-    @include mq('md') {
-      line-height: 2;
-    }
   }
 
   strong,
@@ -32,84 +22,35 @@ body {
     }
   }
 
-  // Language display
-  &.i18n-es {
-    .es {
-      display: block;
-    }
 
-    .en {
-      display: none;
-    }
+  section {
+    >header {
+      text-align: center;
 
-    .language-switcher-locale-url {
-      .en {
-        display: block;
+      h3 {
+        display: inline-block;
+        padding-bottom: rem(30px);
+        margin-bottom: rem(30px);
+        position: relative;
+
+        &::after {
+          @include afterline(100%, rem(12px), 'yup');
+        }
+
+        @include mq('md') {
+          @include font(38px);
+        }
       }
 
-      .es {
-        display: none;
-      }
-    }
-  }
-
-  &.i18n-en {
-    .en {
-      display: block;
-    }
-
-    .es {
-      display: none;
-    }
-
-    .language-switcher-locale-url {
-      .es {
-        display: block;
+      h4 {
+        width: 70%;
+        text-align: left;
+        @include font(18px);
+        font-family: $bd;
       }
 
-      .en {
-        display: none;
-      }
-    }
-  }
-
-  // Image Bg Hack
-  .image-bg {
-    @include bgcover;
-
-    img {
-      display: none;
-    }
-  }
-
-  // Layout
-  .main-container {
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
-
-    .row {
-      padding: 0 0 0 0;
-      margin: 0 0 0 0;
-
-      .col-sm-9,
-      .col-sm-12 {
-        padding: 0 0 0 0;
-        margin: 0 auto;
-        float: none;
-        clear: both;
-      }
-    }
-
-    // Layout fixes
-    aside {
-      &.col-md-3 {
-        display: none;
-      }
-    }
-
-    h1 {
-      &.page-header {
-        display: none;
+      img {
+        width: 20%;
       }
     }
   }

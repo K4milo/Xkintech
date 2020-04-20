@@ -3,10 +3,19 @@ import {
 } from '../components/_slider'
 
 function buildSlider() {
-  const selector = $('.view-slider .view-content')
+  const selector = $('.customers-wrapper');
   const paramSlider = {
     arrows: true,
-    dots: true
+    dots: false,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      }
+    }]
   }
   const slider = new HeroSlider(paramSlider, selector)
   slider.initSlider()

@@ -9,3 +9,11 @@
 @import 'commons/general';
 @import 'commons/header';
 @import 'commons/footer';
+
+// -- Components -- //
+@import 'components/hero';
+@import 'components/services';
+@import 'components/webforms';
+
+// -- Vendors -- //
+@import 'vendors/slick/slick';

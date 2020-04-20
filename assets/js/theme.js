@@ -228,10 +228,19 @@ Object.defineProperty(exports, '__esModule', {
 var _components_slider = __webpack_require__(3);
 
 function buildSlider() {
-  var selector = $('.view-slider .view-content');
+  var selector = $('.customers-wrapper');
   var paramSlider = {
     arrows: true,
-    dots: true
+    dots: false,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }]
   };
   var slider = new _components_slider.HeroSlider(paramSlider, selector);
   slider.initSlider();

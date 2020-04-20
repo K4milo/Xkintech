@@ -1,0 +1,52 @@
+.hero {
+    background-image: url('../images/bg/bg-hero.jpg');
+    @include bgcover();
+
+    &-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: rem(90px) rem(20px) rem(45px);
+
+        @include mq('md') {
+            height: 100vh;
+            padding: rem(150px) 0 rem(60px);
+        }
+    }
+
+    &--text {
+        width: 100%;
+        color: $white;
+
+        @include mq('md') {
+            width: 38%;
+        }
+
+        h2 {
+            padding-bottom: rem(30px);
+            margin-bottom: rem(30px);
+            position: relative;
+            
+            &::after {
+                @include afterline(rem(185px), rem(12px),'white');
+            }
+
+            @include mq('md') {
+                @include font(48px);
+            }
+        }
+    }
+
+    &--image {
+        width: 100%;
+
+        @include mq('md') {
+            width: 50%;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    }
+}
