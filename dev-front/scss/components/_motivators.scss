@@ -1,0 +1,45 @@
+.motivators {
+    padding: rem(80px) rem(20px);
+    color: $txt;
+    position: relative;
+
+    @include mq('md') {
+        padding: rem(120px) 0;
+    }
+    
+    &::after {
+        content: "";
+        width: rem(333px);
+        height: rem(215px);
+        @include iconSVG('../images/misc/top-services.png');
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        transform: rotateY(180deg);
+    }
+
+    &-item {
+        padding: rem(20px);
+        text-align: center;
+
+        header {
+            margin-bottom: rem(20px);
+
+            h4 {
+                display: inline-block;
+                font-family: $bd;
+                color: $purple;
+            }
+        }
+
+        &--text {
+            @include wrapper;
+            max-width: rem(700px);
+
+            p {
+                font-family: $lt;
+            }
+        }
+    }
+}

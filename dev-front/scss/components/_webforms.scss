@@ -5,12 +5,21 @@ body {
         .webform {
             display: flex;
             flex-wrap: wrap;
+            background-color: $white;
+            box-shadow: 0 0 rem(20px) rgba($blue-dk, 0.3);
 
             &-column {
                 width: 100%;
-
+                padding: rem(20px);
+                position: relative;
+                
                 @include mq('md') {
+                    padding: rem(40px) rem(60px) 0;
                     width: 50%;
+
+                    &:nth-child(2) {
+                        border-left: rem(1px) solid $txt;
+                    }
                 }
 
                 header {
@@ -34,7 +43,11 @@ body {
             }
 
             &-field {
-                margin-bottom: rem(16px);
+                margin-bottom: rem(26px);
+
+                @include mq('md') {
+                    @include font(18px);
+                }
 
                 &__text {
                     input {
@@ -53,8 +66,8 @@ body {
                     textarea {
                         width: 100%;
                         height: 100%;
-                        padding: rem(30px);
                         border: none;
+                        padding: 0;
                     }
                 }
 
@@ -65,11 +78,32 @@ body {
                         &[type="submit"] {
                             border-radius: 0;
                             color: $white;
+                            height: auto;
                             @include background-gradient($salmon, $purple, 'horizontal');
+                            border: none;
+                            padding: rem(16px);
+
+                            @include mq('md') {
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                width: 100%;
+                            }
                         }
                     }
                 }
             }
         }
+    }
+}
+
+// Section styles
+.contact-form {
+    padding: rem(40px) rem(20px);
+    position: relative;
+    background-color: rgba($blue-dk, 0.1);
+
+    @include mq('md') {
+        padding: rem(215px) 0;
     }
 }

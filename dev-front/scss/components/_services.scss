@@ -1,7 +1,31 @@
 body {
     .services {
-        padding: rem(20px);
+        padding: rem(80px) rem(20px);
         color: $txt;
+        position: relative;
+
+        &::before {
+            content: "";
+            width: rem(333px);
+            height: rem(215px);
+            @include iconSVG('../images/misc/top-services.png');
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+        }
+
+        &::after {
+            content: "";
+            width: rem(333px);
+            height: rem(215px);
+            @include iconSVG('../images/misc/top-services.png');
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 2;
+            transform: rotate(180deg);
+        }
 
         @include mq('md') {
             padding: rem(120px) 0;
@@ -60,5 +84,4 @@ body {
             }
         }
     }
-
 }

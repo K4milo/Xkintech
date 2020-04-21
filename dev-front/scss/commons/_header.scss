@@ -10,31 +10,31 @@ body {
         transition: all 0.43s;
         z-index: 10;
 
-        @include mq('md'){
+        @include mq("md") {
             padding: rem(25px) 0;
         }
 
         &-brand {
-            @include iconSVG('../images/brand/white-logo.svg');
+            @include iconSVG("../images/brand/white-logo.svg");
             width: rem(100px);
             height: rem(47px);
-            
-            @include mq('md'){
+
+            @include mq("md") {
                 width: rem(187px);
                 height: rem(87px);
             }
         }
 
         &-nav {
-
-            @include mq('md'){
+            @include mq("md") {
                 justify-content: flex-end;
             }
 
             .nav-link {
                 font-family: $rg;
-                color: $white;
-                padding: 0 rem(20px);
+                color: $white !important;
+                padding: 0 rem(40px) !important;
+                letter-spacing: rem(2px);
             }
         }
 

@@ -66,14 +66,16 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports) {
 
 module.exports = jQuery;
 
 /***/ }),
-/* 1 */
+
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -87,6 +89,8 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 var _views_viewSlider = __webpack_require__(5);
 
+var _views_motivators = __webpack_require__(37);
+
 var _sideffects = __webpack_require__(4);
 
 window.$ = window.jQuery = _jquery2['default'];
@@ -94,6 +98,7 @@ window.$ = window.jQuery = _jquery2['default'];
 function init() {
   (0, _sideffects.scrollAddClass)();
   (0, _views_viewSlider.buildSlider)();
+  (0, _views_motivators.buildMotivators)();
   (0, _sideffects.imageBackground)();
 }
 
@@ -102,13 +107,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /***/ }),
-/* 2 */
+
+/***/ 2:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 3 */
+
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -172,7 +179,40 @@ var HeroSlider = (function () {
 exports.HeroSlider = HeroSlider;
 
 /***/ }),
-/* 4 */
+
+/***/ 37:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+var _components_slider = __webpack_require__(3);
+
+function buildMotivators() {
+    var selector = $('.motivators-wrapper');
+    var paramSlider = {
+        arrows: true,
+        dots: true,
+        adaptiveHeight: true,
+        customPaging: function customPaging(slider, i) {
+            var index = i += 1;
+            return '<a class="pager__item"> ' + index + ' </a>';
+        }
+    };
+
+    var slider = new _components_slider.HeroSlider(paramSlider, selector);
+    slider.initSlider();
+}
+
+exports.buildMotivators = buildMotivators;
+
+/***/ }),
+
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -215,7 +255,8 @@ exports.imageBackground = imageBackground;
 exports.scrollAddClass = scrollAddClass;
 
 /***/ }),
-/* 5 */
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -249,7 +290,8 @@ function buildSlider() {
 exports.buildSlider = buildSlider;
 
 /***/ }),
-/* 6 */
+
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3011,7 +3053,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 7 */
+
+/***/ 7:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
@@ -3019,4 +3062,5 @@ module.exports = __webpack_require__(2);
 
 
 /***/ })
-/******/ ]);
+
+/******/ });
