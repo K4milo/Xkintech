@@ -1,0 +1,40 @@
+#wrapper-footer-full {
+    background-color: $blue-dk;
+}
+
+.footer {
+    &__logo {
+        @include iconSVG("../images/brand/logo.svg");
+        width: rem(100px);
+        height: rem(47px);
+
+        @include mq("md") {
+            width: rem(187px);
+            height: rem(87px);
+        }
+    }
+
+    &-widget {
+        color: $white;
+
+        h3 {
+            color: $white;
+            font-family: $rg;
+            font-weight: normal;
+            @include font(16px);
+            margin-bottom: 0;
+        }
+
+        ul {
+            padding: 0 0;
+
+            li {
+                display: block;
+
+                a {
+                    color: $white;
+                }
+            }
+        }
+    }
+}

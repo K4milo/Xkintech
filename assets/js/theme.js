@@ -63,59 +63,17 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports) {
 
 module.exports = jQuery;
 
 /***/ }),
-
-/***/ 1:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-var _views_viewSlider = __webpack_require__(5);
-
-var _views_motivators = __webpack_require__(37);
-
-var _sideffects = __webpack_require__(4);
-
-window.$ = window.jQuery = _jquery2['default'];
-
-function init() {
-  (0, _sideffects.scrollAddClass)();
-  (0, _views_viewSlider.buildSlider)();
-  (0, _views_motivators.buildMotivators)();
-  (0, _sideffects.imageBackground)();
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  return init();
-});
-
-/***/ }),
-
-/***/ 2:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 3:
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -137,7 +95,7 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-__webpack_require__(6);
+__webpack_require__(7);
 
 window.$ = window.jQuery = _jquery2['default'];
 
@@ -179,40 +137,46 @@ var HeroSlider = (function () {
 exports.HeroSlider = HeroSlider;
 
 /***/ }),
-
-/***/ 37:
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _components_slider = __webpack_require__(3);
+var _jquery = __webpack_require__(0);
 
-function buildMotivators() {
-    var selector = $('.motivators-wrapper');
-    var paramSlider = {
-        arrows: true,
-        dots: true,
-        adaptiveHeight: true,
-        customPaging: function customPaging(slider, i) {
-            var index = i += 1;
-            return '<a class="pager__item"> ' + index + ' </a>';
-        }
-    };
+var _jquery2 = _interopRequireDefault(_jquery);
 
-    var slider = new _components_slider.HeroSlider(paramSlider, selector);
-    slider.initSlider();
+var _views_viewSlider = __webpack_require__(6);
+
+var _views_motivators = __webpack_require__(5);
+
+var _sideffects = __webpack_require__(4);
+
+window.$ = window.jQuery = _jquery2['default'];
+
+function init() {
+  (0, _sideffects.scrollAddClass)();
+  (0, _views_viewSlider.buildSlider)();
+  (0, _views_motivators.buildMotivators)();
+  (0, _sideffects.imageBackground)();
+  (0, _sideffects.buildLinkAnchors)();
 }
 
-exports.buildMotivators = buildMotivators;
+document.addEventListener('DOMContentLoaded', function () {
+  return init();
+});
 
 /***/ }),
+/* 3 */
+/***/ (function(module, exports) {
 
-/***/ 4:
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -251,12 +215,79 @@ function scrollAddClass() {
   });
 }
 
+function anchorLinkHandler(e) {
+  var distanceToTop = function distanceToTop(el) {
+    return Math.floor(el.getBoundingClientRect().top);
+  };
+
+  e.preventDefault();
+  var targetID = this.getAttribute("href");
+  var targetAnchor = document.querySelector(targetID);
+  if (!targetAnchor) return;
+  var originalTop = distanceToTop(targetAnchor);
+
+  window.scrollBy({
+    top: originalTop,
+    left: 0,
+    behavior: "smooth"
+  });
+
+  var checkIfDone = setInterval(function () {
+    var atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2;
+    if (distanceToTop(targetAnchor) === 0 || atBottom) {
+      targetAnchor.tabIndex = "-1";
+      targetAnchor.focus();
+      window.history.pushState("", "", targetID);
+      clearInterval(checkIfDone);
+    }
+  }, 100);
+}
+
+function buildLinkAnchors() {
+  var linksToAnchors = document.querySelectorAll('a[href^="#"]');
+
+  linksToAnchors.forEach(function (each) {
+    return each.onclick = anchorLinkHandler;
+  });
+}
+
 exports.imageBackground = imageBackground;
 exports.scrollAddClass = scrollAddClass;
+exports.buildLinkAnchors = buildLinkAnchors;
 
 /***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/***/ 5:
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+var _components_slider = __webpack_require__(1);
+
+function buildMotivators() {
+    var selector = $('.motivators-wrapper');
+    var paramSlider = {
+        arrows: true,
+        dots: true,
+        adaptiveHeight: true,
+        customPaging: function customPaging(slider, i) {
+            var index = i += 1;
+            return '<a class="pager__item"> ' + index + ' </a>';
+        }
+    };
+
+    var slider = new _components_slider.HeroSlider(paramSlider, selector);
+    slider.initSlider();
+}
+
+exports.buildMotivators = buildMotivators;
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -266,7 +297,7 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-var _components_slider = __webpack_require__(3);
+var _components_slider = __webpack_require__(1);
 
 function buildSlider() {
   var selector = $('.customers-wrapper');
@@ -290,8 +321,7 @@ function buildSlider() {
 exports.buildSlider = buildSlider;
 
 /***/ }),
-
-/***/ 6:
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3053,14 +3083,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-
-/***/ 7:
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(1);
-module.exports = __webpack_require__(2);
+__webpack_require__(2);
+module.exports = __webpack_require__(3);
 
 
 /***/ })
-
-/******/ });
+/******/ ]);

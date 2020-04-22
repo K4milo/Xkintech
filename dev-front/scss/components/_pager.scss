@@ -7,13 +7,17 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        
+        @include mq('md') {
+            padding: rem(60px) 0;
+        }
 
         li {
             display: block;
-            width: rem(50px);
-            height: rem(50px);
+            width: rem(45px);
+            height: rem(45px);
             border-radius: 100%;
-            padding: rem(10px);
+            padding: rem(5px);
             transition: all 0.32s;
             @include background-gradient($salmon, $purple, 'horizontal');
 
@@ -34,10 +38,9 @@
                     text-align: center;
                     line-height: 2.3;
                     color: $white;
-                    @include font(27px);
+                    @include font(16px);
 
                     @include mq('md') {
-
                         @include font(47px);
                     }
                 }
@@ -45,7 +48,7 @@
 
             &.slick-active {
                 @include background-gradient($blue, $purple, 'horizontal');
-                padding: rem(20px);
+                padding: rem(10px);
 
                 @include mq('md') {
                     padding: rem(30px);

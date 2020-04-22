@@ -10,7 +10,8 @@ import {
 
 import {
   imageBackground,
-  scrollAddClass
+  scrollAddClass,
+  buildLinkAnchors
 } from './sideffects'
 
 window.$ = window.jQuery = $
@@ -20,6 +21,7 @@ function init() {
   buildSlider();
   buildMotivators();
   imageBackground();
+  buildLinkAnchors();
 }
 
 document.addEventListener('DOMContentLoaded', () => init())

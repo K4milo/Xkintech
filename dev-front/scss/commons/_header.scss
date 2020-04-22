@@ -18,10 +18,18 @@ body {
             @include iconSVG("../images/brand/white-logo.svg");
             width: rem(100px);
             height: rem(47px);
+            margin-right: auto;
 
             @include mq("md") {
                 width: rem(187px);
                 height: rem(87px);
+            }
+        }
+
+        &-collapse {
+
+            &.show {
+                background-color: $purple;
             }
         }
 
@@ -33,8 +41,12 @@ body {
             .nav-link {
                 font-family: $rg;
                 color: $white !important;
-                padding: 0 rem(40px) !important;
+                padding: rem(20px) rem(40px) !important;
                 letter-spacing: rem(2px);
+
+                @include mq("md") {
+                    padding: 0 rem(40px) !important;
+                }
             }
         }
 

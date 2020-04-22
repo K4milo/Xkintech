@@ -6,6 +6,14 @@
     @include mq('md') {
         padding: rem(120px) 0;
     }
+
+    .slick-prev,
+    .slick-next {
+        
+        @include mq('md') {
+            top: 27%;
+        }
+    }
     
     &::after {
         content: "";
